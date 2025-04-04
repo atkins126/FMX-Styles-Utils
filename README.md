@@ -1,10 +1,8 @@
-# Delphi-Projects-Template
+# FMX Styles Utils
 
 [Cette page en français.](LISEZMOI.md)
 
-**A git repository template for my Delphi (or other) projects.**
-
-**This template is distributed under the MIT license. The AGPL license is for the projects I create from this code repository template. Use whatever license you want if you use this template.**
+Some units allow you to add multiple styles to a FireMonkey project, modifying the current style according to the operating system's default style or the user's choice.
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
