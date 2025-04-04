@@ -55,16 +55,19 @@ Count=0
 
 [Footer]
 Count=1
-Item_0=<a href=" xxx" target="_blank"> xxx</a> (c) XXXX-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+Item_0=<a href="https://github.com/DeveloppeurPascal/FMX-Tools-Starter-Kit" target="_blank">FMX Styles Utils</a> (c) 2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> and <a href="https://github.com/Serge-Girard" target="_blank">Serge GIRARD</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
 
 [AutoLinkExclude]
 Count=0
 
 [IncludeDirectories]
-Count=0
+Count=1
+Item_0=src
 
 [Files]
-Count=0
+Count=2
+Item_0=src\_StyleContainerAncestor.pas
+Item_1=src\uStyleManager.pas
 
 [AdditionalFiles]
 Count=0
