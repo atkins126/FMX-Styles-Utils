@@ -2,6 +2,11 @@
     <PropertyGroup>
         <ProjectGuid>{2B95167A-87B8-47CD-88E4-23AC0D0D67A7}</ProjectGuid>
     </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DarkLightSampleProject\DarkLightSample.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
         <Borland.ProjectType/>
@@ -9,14 +14,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="DarkLightSample">
+        <MSBuild Projects="DarkLightSampleProject\DarkLightSample.dproj"/>
+    </Target>
+    <Target Name="DarkLightSample:Clean">
+        <MSBuild Projects="DarkLightSampleProject\DarkLightSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DarkLightSample:Make">
+        <MSBuild Projects="DarkLightSampleProject\DarkLightSample.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget/>
+        <CallTarget Targets="DarkLightSample"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget/>
+        <CallTarget Targets="DarkLightSample:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget/>
+        <CallTarget Targets="DarkLightSample:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
