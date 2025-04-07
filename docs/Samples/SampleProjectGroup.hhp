@@ -16,10 +16,10 @@ Full text search stop list file=
 Full-text search=Yes
 Index File=
 Language=0x409
-Title=SampleProjectGroup
+Title=FMX Styles Utils
 
 [WINDOWS]
-Main="SampleProjectGroup","SampleProjectGroup.hhc","","DarkLightSample.html",,,,,"0x42520",0x61520,400,0x386e,[100,100,1124,868],,,,,,,0
+Main="FMX Styles Utils","SampleProjectGroup.hhc","","DarkLightSample.html",,,,,"0x42520",0x61520,400,0x386e,[100,100,1124,868],,,,,,,0
 
 [Files]
 themes/legacy\css/compact.css
