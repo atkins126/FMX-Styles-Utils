@@ -3,7 +3,7 @@
 ///
 /// FMX Styles Utils
 ///
-/// Copyright 2025 Patrick PREMARTIN & Serge GIRARD under AGPL 3.0 license.
+/// Copyright 2025 Patrick PREMARTIN and Serge GIRARD under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -16,13 +16,16 @@
 /// ***************************************************************************
 ///
 /// Author(s) :
-/// Patrick PREMARTIN & Serge GIRARD
+/// Patrick PREMARTIN and Serge GIRARD
+///
+/// Site :
+/// https://fmxstylesutils.developpeur-pascal.fr/
 ///
 /// Project site :
 /// https://github.com/DeveloppeurPascal/FMX-Styles-Utils
 ///
 /// ***************************************************************************
-/// File last update : 2025-04-04T10:45:26.000+02:00
+/// File last update : 2025-05-17T09:09:37.312+02:00
 /// Signature : 3d6d4c4ea96403116397ac41865d4b647d9b9db3
 /// ***************************************************************************
 /// </summary>

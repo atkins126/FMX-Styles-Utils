@@ -1,9 +1,9 @@
 ﻿/// <summary>
 /// ***************************************************************************
 ///
-/// FMX Tools Starter Kit
+/// FMX Styles Utils
 ///
-/// Copyright 2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2025 Patrick PREMARTIN and Serge GIRARD under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -16,16 +16,16 @@
 /// ***************************************************************************
 ///
 /// Author(s) :
-/// Patrick PREMARTIN
+/// Patrick PREMARTIN and Serge GIRARD
 ///
 /// Site :
-/// https://fmxtoolsstarterkit.developpeur-pascal.fr/
+/// https://fmxstylesutils.developpeur-pascal.fr/
 ///
 /// Project site :
-/// https://github.com/DeveloppeurPascal/FMX-Tools-Starter-Kit
+/// https://github.com/DeveloppeurPascal/FMX-Styles-Utils
 ///
 /// ***************************************************************************
-/// File last update : 2024-09-02T11:34:32.000+02:00
+/// File last update : 2025-05-17T09:09:35.167+02:00
 /// Signature : c8f326fb01f6a87aa5d9d071f0bf76bc8b7e4d34
 /// ***************************************************************************
 /// </summary>
