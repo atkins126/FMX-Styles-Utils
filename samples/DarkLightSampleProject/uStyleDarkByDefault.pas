@@ -25,8 +25,8 @@
 /// https://github.com/DeveloppeurPascal/FMX-Styles-Utils
 ///
 /// ***************************************************************************
-/// File last update : 2025-05-17T09:09:35.167+02:00
-/// Signature : c8f326fb01f6a87aa5d9d071f0bf76bc8b7e4d34
+/// File last update : 2025-05-24T18:59:34.000+02:00
+/// Signature : c7b89862812cbe3292550c84b24ac7c383530b66
 /// ***************************************************************************
 /// </summary>
 
@@ -43,10 +43,19 @@ uses
   uStyleManager;
 
 type
+  /// <summary>
+  /// The "light" FireMonkey style from Embarcadero embed in a style book.
+  /// </summary>
   TStyleDarkByDefault = class(T__StyleContainerAncestor)
   private
   public
+    /// <summary>
+    /// Returns the name of this style as a user friendly string.
+    /// </summary>
     class function GetStyleName: string; override;
+    /// <summary>
+    /// Returns the type (light, dark, other) of this style .
+    /// </summary>
     class function GetStyleType: TProjectStyleType; override;
   end;
 
@@ -67,6 +76,6 @@ end;
 
 initialization
 
-TStyleDarkByDefault.Initialize;
+TStyleDarkByDefault.RegisterStyle;
 
 end.

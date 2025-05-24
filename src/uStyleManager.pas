@@ -25,8 +25,8 @@
 /// https://github.com/DeveloppeurPascal/FMX-Styles-Utils
 ///
 /// ***************************************************************************
-/// File last update : 2025-05-17T09:09:24.877+02:00
-/// Signature : 9629bd15ec57dc09a9c46c08acd74c9cc42b7bf8
+/// File last update : 2025-05-24T19:14:08.000+02:00
+/// Signature : fd4d5921a726fa44c1503f464954282935ad1e68
 /// ***************************************************************************
 /// </summary>
 
@@ -34,7 +34,6 @@ unit uStyleManager;
 
 interface
 
-// TODO -oDeveloppeurPascal : add XML doc comments
 uses
   System.Types,
   System.Generics.Collections,
@@ -42,8 +41,14 @@ uses
 
 type
 {$SCOPEDENUMS ON}
+  /// <summary>
+  /// Style types available in the projects depending on ths system or user choice.
+  /// </summary>
   TProjectStyleType = (light, dark, other);
 
+  /// <summary>
+  /// Style item class used for each style registered in the project.
+  /// </summary>
   TProjectStyleItem = class
   private
     FStyleType: TProjectStyleType;
@@ -52,18 +57,43 @@ type
     procedure SetStyleType(const Value: TProjectStyleType);
   protected
   public
+    /// <summary>
+    /// Contains the name of the style (given by GetStyleName() of the style
+    /// container class during its registration).
+    /// </summary>
     property StyleName: string read FStyleName write SetStyleName;
+    /// <summary>
+    /// Contains the type of the style (given by GetStyleType() of the style
+    /// container class during its registration).
+    /// </summary>
     property StyleType: TProjectStyleType read FStyleType write SetStyleType;
+    /// <summary>
+    /// Instance constructor method for this class.
+    /// </summary>
     constructor Create(const StyleName: string;
       const StyleType: TProjectStyleType);
   end;
 
+  /// <summary>
+  /// Collection of registered style items.
+  /// </summary>
   TProjectStylesList = class(TObjectList<TProjectStyleItem>)
   end;
 
+  /// <summary>
+  /// Message used to broadcast a style change in the project with the RTL
+  /// messaging system.
+  /// </summary>
   TProjectStyleChangeMessage = class(tmessage<string>)
   end;
 
+  /// <summary>
+  /// A singleton to manage current style in the project and get its properties.
+  /// </summary>
+  /// <remarks>
+  /// Don't create or destroy instances of this class. Only use "Current()"
+  /// method to access to its global unique instance.
+  /// </remarks>
   TProjectStyle = class
   private
     FStyleName: string;
@@ -72,15 +102,44 @@ type
     function GetStyleCount: integer;
     function GetStyle(const Index: integer): TProjectStyleItem;
   protected
+    /// <summary>
+    /// Instance constructor method for this class.
+    /// </summary>
     constructor Create;
   public
+    /// <summary>
+    /// Name of the current style.
+    /// </summary>
     property StyleName: string read FStyleName write SetStyleName;
+    /// <summary>
+    /// Number of available registered styles.
+    /// </summary>
     property StylesCount: integer read GetStyleCount;
+    /// <summary>
+    /// Give access to each registered styles as style item instances.
+    /// </summary>
     property Styles[const Index: integer]: TProjectStyleItem read GetStyle;
+    /// <summary>
+    /// Returns an array of strings corresponding on registered styles name.
+    /// </summary>
     function GetStyles(const StyleType: TProjectStyleType): TStringDynArray;
-    procedure Register(const StyleName: string;
+    /// <summary>
+    /// Add a style to the available styles for this project.
+    /// </summary>
+    procedure RegisterStyle(const StyleName: string;
       const StyleType: TProjectStyleType = TProjectStyleType.other);
+    /// <summary>
+    /// Returns the global TProjectStyle singleton class.
+    /// </summary>
+    /// <remarks>
+    /// Never try to "Free()" the instance given by the "Current()" method.
+    /// You will have access violations in your program and memory leaks !
+    /// </remarks>
     class function Current: TProjectStyle;
+    /// <summary>
+    /// Instance destructor method for this class. don't call it.
+    /// Use ".Free()" or "FreeAndNil()".
+    /// </summary>
     destructor Destroy; override;
   end;
 
@@ -145,7 +204,7 @@ begin
     end;
 end;
 
-procedure TProjectStyle.Register(const StyleName: string;
+procedure TProjectStyle.RegisterStyle(const StyleName: string;
   const StyleType: TProjectStyleType);
 begin
   if StyleName.trim.isempty then

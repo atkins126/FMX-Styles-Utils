@@ -25,8 +25,8 @@
 /// https://github.com/DeveloppeurPascal/FMX-Styles-Utils
 ///
 /// ***************************************************************************
-/// File last update : 2025-05-17T09:09:28.273+02:00
-/// Signature : c15bbf26e82f58f50c64bae91c4eb2805f7099e5
+/// File last update : 2025-05-24T19:10:12.000+02:00
+/// Signature : 3a0ef26f49f667b73b69d352bcb077028ff2e9da
 /// ***************************************************************************
 /// </summary>
 
@@ -47,10 +47,11 @@ type
   /// Ancestor class of your styles containers.
   /// </summary>
   /// <remarks>
-  /// In your projects create a class descendant for each style you want to add
-  /// to your project. Overload GetStyleName and GetStyleType functions and add
-  /// a call to TStyleContainerClass.Initialize in the initialization bloc of
-  /// your unit.
+  /// In your projects :
+  /// - create a descendant of this class for each style you want to use
+  /// - override GetStyleName and GetStyleType functions
+  /// - call the class procedure RegisterStyle() of your class in the
+  /// initialization section of its unit.
   /// </remarks>
   T__StyleContainerAncestor = class(TDataModule)
     StyleBook1: TStyleBook;
@@ -59,9 +60,14 @@ type
       const M: TMessage);
   public
     /// <summary>
-    /// Register this style in the starter kit styles manager if current platform is available.
+    /// DEPRECATED. Used to register the style in the available styles list.
     /// </summary>
     class procedure Initialize; virtual;
+      deprecated 'Use RegisterStyle() method instead of Initialize.';
+    /// <summary>
+    /// Register this style in the available styles list if current platform is available.
+    /// </summary>
+    class procedure RegisterStyle; virtual;
     /// <summary>
     /// Returns the name of this style. This name could to be shown to end users.
     /// </summary>
@@ -82,6 +88,37 @@ uses
 {$R *.dfm}
 
 class procedure T__StyleContainerAncestor.Initialize;
+begin
+  RegisterStyle;
+end;
+
+class procedure T__StyleContainerAncestor.ReceivedProjectStyleChangeMessage
+  (const Sender: TObject; const M: TMessage);
+var
+  dm: T__StyleContainerAncestor;
+  ms: TMemoryStream;
+begin
+  if (M is TProjectStyleChangeMessage) and
+    ((M as TProjectStyleChangeMessage).Value.Tolower = GetStyleName.Tolower)
+  then
+  begin
+    dm := Create(nil);
+    try
+      ms := TMemoryStream.Create;
+      try
+        TStyleStreaming.SaveToStream(dm.StyleBook1.Style, ms);
+        ms.position := 0;
+        TStyleManager.SetStyle(TStyleStreaming.LoadFromStream(ms));
+      finally
+        ms.free;
+      end;
+    finally
+      dm.free;
+    end;
+  end;
+end;
+
+class procedure T__StyleContainerAncestor.RegisterStyle;
 var
   OS: string;
   dm: T__StyleContainerAncestor;
@@ -116,36 +153,10 @@ begin
   end;
   if (Found) then
   begin
-    TProjectStyle.Current.Register(GetStyleName, GetStyleType);
+    TProjectStyle.Current.RegisterStyle(GetStyleName, GetStyleType);
 
     TMessageManager.DefaultManager.SubscribeToMessage
       (TProjectStyleChangeMessage, ReceivedProjectStyleChangeMessage);
-  end;
-end;
-
-class procedure T__StyleContainerAncestor.ReceivedProjectStyleChangeMessage
-  (const Sender: TObject; const M: TMessage);
-var
-  dm: T__StyleContainerAncestor;
-  ms: TMemoryStream;
-begin
-  if (M is TProjectStyleChangeMessage) and
-    ((M as TProjectStyleChangeMessage).Value.Tolower = GetStyleName.Tolower)
-  then
-  begin
-    dm := Create(nil);
-    try
-      ms := TMemoryStream.Create;
-      try
-        TStyleStreaming.SaveToStream(dm.StyleBook1.Style, ms);
-        ms.position := 0;
-        TStyleManager.SetStyle(TStyleStreaming.LoadFromStream(ms));
-      finally
-        ms.free;
-      end;
-    finally
-      dm.free;
-    end;
   end;
 end;
 
