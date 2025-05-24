@@ -8,6 +8,8 @@ Ce dépôt de code contient des classes permettant de simplifier un peu tout ça
 
 Veillez quand même à ne charger que les styles des plateformes ciblées (Windows, macOS, Linux, iOS ou Android) pour ne pas alourdir inutilement vos exécutables ou les paquets d'installation déployés par RAD Studio.
 
+Le contenu de ce dépôt de code est le fruit du travail de recherche et d'échanges avec [Serge Girard](https://github.com/Serge-Girard) lors de sa rédaction d'articles sur les styles FireMonkey et de projets de démo. Vous pouvez voir sa version sur [ce dépôt de code](https://github.com/Serge-Girard/TutorialsStyleFMX).
+
 Ce dépôt de code contient un projet développé en langage Pascal Objet sous Delphi. Vous ne savez pas ce qu'est Dephi ni où le télécharger ? Vous en saurez plus [sur ce site web](https://delphi-resources.developpeur-pascal.fr/).
 
 ## Présentations et conférences

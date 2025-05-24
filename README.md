@@ -8,6 +8,8 @@ This code repository contains classes to simplify things a little. You'll find a
 
 However, make sure you only load the styles for the targeted platforms (Windows, macOS, Linux, iOS or Android) so as not to unnecessarily burden your executables or the installation packages deployed by RAD Studio.
 
+The content of this code repository is the result of research and discussions with [Serge Girard](https://github.com/Serge-Girard) when he was writing articles on FireMonkey styles and demo projects. You can see his version on [this code repository](https://github.com/Serge-Girard/TutorialsStyleFMX).
+
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
 ## Talks and conferences
