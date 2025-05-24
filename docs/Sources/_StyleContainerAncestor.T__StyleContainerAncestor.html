@@ -25,7 +25,7 @@
 <p>
 
 
-<p>In your projects create a class descendant for each style you want to add to your project. Overload GetStyleName and GetStyleType functions and add a call to TStyleContainerClass.Initialize in the initialization bloc of your unit.</p>
+<p>In your projects : - create a descendant of this class for each style you want to use - override GetStyleName and GetStyleType functions - call the class procedure RegisterStyle() of your class in the initialization section of its unit.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
@@ -43,13 +43,17 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="_StyleContainerAncestor.T__StyleContainerAncestor.html#Initialize">Initialize</a></strong>; virtual;</code></td>
+<td class="itemcode"><code>class procedure <strong><a href="_StyleContainerAncestor.T__StyleContainerAncestor.html#Initialize">Initialize</a></strong>; virtual; deprecated 'Use RegisterStyle() method instead of Initialize.';</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="_StyleContainerAncestor.T__StyleContainerAncestor.html#GetStyleName">GetStyleName</a></strong>: string; virtual; abstract;</code></td>
+<td class="itemcode"><code>class procedure <strong><a href="_StyleContainerAncestor.T__StyleContainerAncestor.html#RegisterStyle">RegisterStyle</a></strong>; virtual;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="_StyleContainerAncestor.T__StyleContainerAncestor.html#GetStyleName">GetStyleName</a></strong>: string; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="_StyleContainerAncestor.T__StyleContainerAncestor.html#GetStyleType">GetStyleType</a></strong>: <a href="uStyleManager.html#TProjectStyleType">TProjectStyleType</a>; virtual; abstract;</code></td>
 </tr>
@@ -68,11 +72,21 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Initialize"></span><code>class procedure <strong>Initialize</strong>; virtual;</code></td>
+<td class="itemcode"><span id="Initialize"></span><code>class procedure <strong>Initialize</strong>; virtual; deprecated 'Use RegisterStyle() method instead of Initialize.';</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="hint_directive">Warning: this symbol is deprecated: Use RegisterStyle() method instead of Initialize.</p><p>
+ DEPRECATED. Used to register the style in the available styles list. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RegisterStyle"></span><code>class procedure <strong>RegisterStyle</strong>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
- Register this style in the starter kit styles manager if current platform is available. </p>
+ Register this style in the available styles list if current platform is available. </p>
 </td></tr>
 </table>
 <table class="detail wide_list">

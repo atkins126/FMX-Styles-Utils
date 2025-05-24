@@ -43,6 +43,10 @@
                                                   <param name="Name" value="Initialize">
                                                   <param name="Local" value="_StyleContainerAncestor.T__StyleContainerAncestor.Initialize.html">
                                                   </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="RegisterStyle">
+                                                  <param name="Local" value="_StyleContainerAncestor.T__StyleContainerAncestor.RegisterStyle.html">
+                                                  </OBJECT>
                                           </UL>
                                       <LI> <OBJECT type="text/sitemap">
                                           <param name="Name" value="Fields">
@@ -245,8 +249,8 @@
                                                   <param name="Local" value="uStyleManager.TProjectStyle.GetStyles.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
-                                                  <param name="Name" value="Register">
-                                                  <param name="Local" value="uStyleManager.TProjectStyle.Register.html">
+                                                  <param name="Name" value="RegisterStyle">
+                                                  <param name="Local" value="uStyleManager.TProjectStyle.RegisterStyle.html">
                                                   </OBJECT>
                                           </UL>
                                   </UL>

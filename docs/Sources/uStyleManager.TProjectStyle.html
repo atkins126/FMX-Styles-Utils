@@ -20,6 +20,12 @@
 <p class="declaration">
 <code>type TProjectStyle = class(TObject)</code></p>
 <h2 class="description">Description</h2>
+<p>
+ A singleton to manage current style in the project and get its properties. </p>
+<p>
+
+
+<p>Don't create or destroy instances of this class. Only use &quot;Current()&quot; method to access to its global unique instance.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="thisitem">TProjectStyle</li></ul><h2 class="overview">Overview</h2>
@@ -35,7 +41,7 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="uStyleManager.TProjectStyle.html#Register">Register</a></strong>(const StyleName: string; const StyleType: <a href="uStyleManager.html#TProjectStyleType">TProjectStyleType</a> = <a href="uStyleManager.html#other">TProjectStyleType.other</a>);</code></td>
+<td class="itemcode"><code>procedure <strong><a href="uStyleManager.TProjectStyle.html#RegisterStyle">RegisterStyle</a></strong>(const StyleName: string; const StyleType: <a href="uStyleManager.html#TProjectStyleType">TProjectStyleType</a> = <a href="uStyleManager.html#other">TProjectStyleType.other</a>);</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -69,7 +75,9 @@
 <td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Instance constructor method for this class. </p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -77,15 +85,19 @@
 <td class="itemcode"><span id="GetStyles"></span><code>function <strong>GetStyles</strong>(const StyleType: <a href="uStyleManager.html#TProjectStyleType">TProjectStyleType</a>): TStringDynArray;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Returns an array of strings corresponding on registered styles name. </p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Register"></span><code>procedure <strong>Register</strong>(const StyleName: string; const StyleType: <a href="uStyleManager.html#TProjectStyleType">TProjectStyleType</a> = <a href="uStyleManager.html#other">TProjectStyleType.other</a>);</code></td>
+<td class="itemcode"><span id="RegisterStyle"></span><code>procedure <strong>RegisterStyle</strong>(const StyleName: string; const StyleType: <a href="uStyleManager.html#TProjectStyleType">TProjectStyleType</a> = <a href="uStyleManager.html#other">TProjectStyleType.other</a>);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Add a style to the available styles for this project. </p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -93,7 +105,13 @@
 <td class="itemcode"><span id="Current"></span><code>class function <strong>Current</strong>: <a href="uStyleManager.TProjectStyle.html">TProjectStyle</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Returns the global TProjectStyle singleton class. </p>
+<p>
+
+
+<p>Never try to &quot;Free()&quot; the instance given by the &quot;Current()&quot; method. You will have access violations in your program and memory leaks !</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -101,7 +119,9 @@
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Instance destructor method for this class. don't call it. Use &quot;.Free()&quot; or &quot;FreeAndNil()&quot;. </p>
+</td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -110,7 +130,9 @@
 <td class="itemcode"><span id="StyleName"></span><code>property <strong>StyleName</strong>: string read FStyleName write SetStyleName;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Name of the current style. </p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -118,7 +140,9 @@
 <td class="itemcode"><span id="StylesCount"></span><code>property <strong>StylesCount</strong>: integer read GetStyleCount;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Number of available registered styles. </p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -126,7 +150,9 @@
 <td class="itemcode"><span id="Styles"></span><code>property <strong>Styles</strong>[constIndex:integer]: <a href="uStyleManager.TProjectStyleItem.html">TProjectStyleItem</a> read GetStyle;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+ Give access to each registered styles as style item instances. </p>
+</td></tr>
 </table>
 <a href="https://fmxstylesutils.developpeur-pascal.fr" target="_blank">FMX Styles Utils</a> (c) 2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> and <a href="https://github.com/Serge-Girard" target="_blank">Serge GIRARD</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
